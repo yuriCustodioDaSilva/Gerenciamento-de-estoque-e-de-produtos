@@ -50,7 +50,7 @@ public class AuthController : ControllerBase
         foreach (var role in roles)
             claims.Add(new Claim(ClaimTypes.Role, role));
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("chave-super-secreta")); // em casos normais botaria isso no appsettings.json
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Asjha(!@AOSDo1534ASi1jaovjasAO13")); // em casos normais botaria isso no appsettings.json
         var token = new JwtSecurityToken(
             claims: claims,
             expires: DateTime.UtcNow.AddHours(8),
