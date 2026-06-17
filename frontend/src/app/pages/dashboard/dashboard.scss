@@ -1,0 +1,29 @@
+.spacer { flex: 1; }
+
+.role-badge {
+  margin-right: 16px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.dashboard-container {
+  padding: 32px;
+  h2 { margin-bottom: 24px; }
+}
+
+.cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.dash-card {
+  width: 200px;
+  cursor: pointer;
+  text-align: center;
+  transition: box-shadow 0.2s;
+  &:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  mat-icon { font-size: 48px; width: 48px; height: 48px; margin-bottom: 8px; }
+  h3 { font-size: 28px; margin: 0; }
+  p { color: #666; margin: 4px 0 0; }
+}

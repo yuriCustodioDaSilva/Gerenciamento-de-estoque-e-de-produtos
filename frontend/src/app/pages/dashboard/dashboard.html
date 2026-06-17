@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <span>Gerenciamento de Estoque</span>
+  <span class="spacer"></span>
+  <span class="role-badge">{{ role }}</span>
+  <button mat-icon-button (click)="logout()" title="Sair">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="dashboard-container">
+  <h2>Bem-vindo!</h2>
+  <div class="cards">
+    <mat-card class="dash-card" (click)="irPara('/produtos')">
+      <mat-card-content>
+        <mat-icon color="primary">inventory_2</mat-icon>
+        <h3>{{ totalProdutos }}</h3>
+        <p>Produtos cadastrados</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="dash-card" (click)="irPara('/estoque')">
+      <mat-card-content>
+        <mat-icon color="accent">swap_horiz</mat-icon>
+        <h3>Estoque</h3>
+        <p>Movimentações e histórico</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
