@@ -1,0 +1,46 @@
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$green-palette,
+        tertiary: mat.$orange-palette,
+      ),
+      typography: 'Inter',
+      density: 0,
+    )
+  );
+}
+
+body {
+  color-scheme: light;
+  background-color: #F4F4F2;
+  color: #2B2B2B;
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+  height: 100%;
+  font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+/* Sobrescreve tons do Material para a paleta corporativa Torrecid */
+html {
+  --mat-sys-primary: #2E7D32;
+  --mat-sys-on-primary: #FFFFFF;
+  --mat-sys-primary-container: #1B4D1F;
+  --mat-sys-on-primary-container: #FFFFFF;
+  --mat-sys-surface: #F4F4F2;
+  --mat-sys-on-surface: #2B2B2B;
+  --mat-sys-error: #B3261E;
+  --mat-sys-tertiary: #D97706;
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+::ng-deep .mat-mdc-card {
+  border-radius: 4px !important;
+}
