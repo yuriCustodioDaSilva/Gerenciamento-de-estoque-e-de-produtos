@@ -75,7 +75,6 @@ São necessários dois terminais abertos ao mesmo tempo — um para o backend e 
 ```bash
 git clone <url-do-repositorio>
 cd <nome-da-pasta>
-git checkout yuri
 ```
 
 ### 2. Sobre o appsettings.json
