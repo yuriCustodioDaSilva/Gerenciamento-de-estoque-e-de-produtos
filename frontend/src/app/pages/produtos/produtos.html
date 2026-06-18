@@ -1,0 +1,70 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="voltar()"><mat-icon>arrow_back</mat-icon></button>
+  <span>Produtos</span>
+  <span class="spacer"></span>
+  <button mat-raised-button *ngIf="role === 'Administrador'" (click)="novoForm()">
+    <mat-icon>add</mat-icon> Novo Produto
+  </button>
+</mat-toolbar>
+
+<div class="container">
+  <mat-card *ngIf="showForm" class="form-card">
+    <mat-card-header>
+      <mat-card-title>{{ editando ? 'Editar' : 'Novo' }} Produto</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="form.nome">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descrição</mat-label>
+        <input matInput [(ngModel)]="form.descricao">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>SKU</mat-label>
+        <input matInput [(ngModel)]="form.sku">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Preço</mat-label>
+        <input matInput type="number" [(ngModel)]="form.preco">
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+      <button mat-button (click)="showForm = false">Cancelar</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <table mat-table [dataSource]="produtos" class="full-width">
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let p">{{ p.nome }}</td>
+    </ng-container>
+    <ng-container matColumnDef="sku">
+      <th mat-header-cell *matHeaderCellDef>SKU</th>
+      <td mat-cell *matCellDef="let p">{{ p.sku }}</td>
+    </ng-container>
+    <ng-container matColumnDef="preco">
+      <th mat-header-cell *matHeaderCellDef>Preço</th>
+      <td mat-cell *matCellDef="let p">{{ p.preco | currency:'BRL' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="quantidadeDisponivel">
+      <th mat-header-cell *matHeaderCellDef>Disponível</th>
+      <td mat-cell *matCellDef="let p">{{ p.quantidadeDisponivel }}</td>
+    </ng-container>
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let p">
+        <button mat-icon-button color="primary" *ngIf="role === 'Administrador'" (click)="editarForm(p)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" *ngIf="role === 'Administrador'" (click)="deletar(p.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

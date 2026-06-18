@@ -17,7 +17,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-var jwtKey = "chave-super-secreta"; // em casos normais botaria isso no appsettings.json
+var jwtKey = "Asjha(!@AOSDo1534ASi1jaovjasAO13"; // em casos normais botaria isso no appsettings.json
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
